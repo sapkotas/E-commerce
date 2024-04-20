@@ -1,0 +1,60 @@
+.front{
+height: 100vh;
+background: linear-gradient(180deg, #f4cdd3,#9b9090 58%);
+display: flex;
+}
+
+.front-left{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 180px;
+    line-height: 1.1;
+}
+
+.front-left h2{
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+}
+
+.front-left p{ 
+    font-size: 90px;
+    color: #171711;
+    font-weight: 500;
+}
+
+.front-hand-icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.front-hand-icon img{
+    width: 105px;
+}
+
+.front-latest-btn{
+    border-radius: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 310px;
+    height: 70px;
+    margin-top: 30px;
+    background-color: rgb(255, 65, 65);
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.front-right{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

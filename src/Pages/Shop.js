@@ -1,8 +1,11 @@
 import React from 'react'
+import Front from '../Components/Front/Front'
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+<>
+    <Front/>
+</>
   )
 }
 

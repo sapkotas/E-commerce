@@ -14,10 +14,10 @@ return(
     <p>PASAL</p>
     </div>
     <ul className="nav-menu">
-        <li onClick={()=>{setMenu("shop")}}><Link style ={{textDecoration:'none'}} to ="/">Shop</Link> {menu==="shop"? <hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("mens")}}><Link style ={{textDecoration:'none'}} to ="/mens">Men</Link> {menu==="mens"? <hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("womens")}}> <Link style ={{textDecoration:'none'}} to ="/womens">Women</Link> {menu==="womens"? <hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("Kids")}}>   <Link style ={{textDecoration:'none'}} to ="/kids">Kid</Link> {menu==="kids"? <hr/>:<></>}</li>
+        <li onClick={()=>{setMenu("shop")}}><Link style ={{textDecoration:'none', color:'black'}} to ="/">Shop</Link> {menu==="shop"? <hr/>:<></>}</li>
+        <li onClick={()=>{setMenu("mens")}}><Link style ={{textDecoration:'none',color:'black'}} to ="/mens">Men</Link> {menu==="mens"? <hr/>:<></>}</li>
+        <li onClick={()=>{setMenu("womens")}}> <Link style ={{textDecoration:'none',color:'black'}} to ="/womens">Women</Link> {menu==="womens"? <hr/>:<></>}</li>
+        <li onClick={()=>{setMenu("Kids")}}>   <Link style ={{textDecoration:'none',color:'black'}} to ="/kids">Kid</Link> {menu==="kids"? <hr/>:<></>}</li>
         </ul>
         <div className="nav-login-cart">
             <Link to ="/login"> <button>Login</button> </Link>

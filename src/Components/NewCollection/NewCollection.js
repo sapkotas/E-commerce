@@ -5,6 +5,7 @@ import Item from '../Item/Item'
 
 const NewCollection = () => {
   return (
+    <div>
     <div className="new-collections">
         <h1>NEW COLLECTION</h1>
         <hr />
@@ -14,6 +15,7 @@ const NewCollection = () => {
             image={item.image} new_price={item.new_price} old_price={item.old_price} />
         })}
         </div>
+    </div>
     </div>
   )
 }

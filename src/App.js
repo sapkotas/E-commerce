@@ -6,6 +6,7 @@ import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
 import Product from './Pages/Product';
 import LoginSignup from './Pages/LoginSignup';
+import Fotter from './Components/Footer/Fotter';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/login' element={<LoginSignup/>}/>
         
       </Routes>
+      <Fotter/>
       </BrowserRouter>
       
     </div>

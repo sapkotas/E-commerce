@@ -23,7 +23,7 @@ const Front = () => {
       </div>
 </div>
 <div className='front-right'>
- <img src ={hero_image} style={{width:"500px"}} alt=""/>
+ <img src ={hero_image} alt=""/>
 </div>
 </div>
 </>

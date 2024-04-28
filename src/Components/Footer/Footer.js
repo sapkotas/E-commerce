@@ -1,11 +1,11 @@
 import React from 'react'
-import'./Fotter.css'
+import'./Footer.css'
 import footer_logo from '../Assests/logo_big.png'
 import instagram_icon from '../Assests/instagram_icon.png'
 import pintester_icon from '../Assests/pintester_icon.png'
 import whatsapp_icon from '../Assests/whatsapp_icon.png'
 
-const Fotter = () => {
+const Footer = () => {
   return (
     <div className="footer">
         <div className="footer-logo">
@@ -38,4 +38,4 @@ const Fotter = () => {
   )
 }
 
-export default Fotter
+export default Footer;

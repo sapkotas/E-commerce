@@ -1,5 +1,6 @@
 import React from "react";
 import "./CSS/LoginPage.css";
+import { Link } from "react-router-dom"
 
 const LoginPage = () => {
   return (
@@ -22,9 +23,9 @@ const LoginPage = () => {
           </div>
         </form>
         <p className="login-login">
-          Already have an account? <span>Login!</span>
+          Already have an account?  <span> <Link to = "/"  style={{textDecoration:"none",color:"red"}}> Login! </Link> </span>
         </p>
-      </div>
+      </div>~
     </div>
   );
 };

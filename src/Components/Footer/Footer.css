@@ -1,53 +1,85 @@
-.footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    background-color: #ecebeb;
+.footer {
+    background-color: #f5f5f5; /* Light grey color */
+    color: #333; /* Dark text color */
+    padding: 50px 0;
 }
-.footer-logo{
+
+.footer-top {
     display: flex;
-    align-items: center;
-    gap: 20px;
+    justify-content: space-around;
+    align-items: flex-start;
 }
-.footer-logo p{
-    color: #383838;
-    font-size:46px;
-    font-weight:700;
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 20px;
 }
-.footer_links{
+
+.footer-links {
     display: flex;
+}
+
+.footer-links-column {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.footer-links-column h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333; /* Dark text color */
+}
+
+.footer-links-column ul {
     list-style: none;
-    gap: 50px;
-    color: #252525;
-    font-size: 20px;
+    padding: 0;
 }
-.footer_links li{
-    cursor: pointer;
+
+.footer-links-column ul li {
+    margin-bottom: 10px;
 }
-.footer-social-icon{
-    display: flex;
-    gap: 30px;
-}
-.footer-icons-container{
-    padding: 10px;
-    padding-bottom: 6px;  
-}
-.footer-copyright{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-    margin-bottom: 30px;
-    color: #1a1a1a;
-    font-size: 20px;
-}
-.footer-copyright hr{
-    width: 80%;
+
+.footer-links-column ul li button {
+    background: none;
     border: none;
-    border-radius: 10px;
-    height: 3px;
-    background-color: #c7c7c7;
+    color: #333; /* Dark text color */
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Add transition for color change */
+}
+
+.footer-links-column ul li button:hover {
+    text-decoration: underline;
+    color: #ff69b4; /* Change color on hover */
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons button {
+    background: none;
+    border: none;
+    color: #333; /* Dark text color */
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 10px;
+    transition: color 0.3s ease; /* Add transition for color change */
+}
+
+.social-icons button:hover {
+    color: #ff69b4; /* Change color on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    background-color: #fff; /* White background for bottom section */
+    color: #333; /* Dark text color */
+    font-size: 14px;
+}
+
+.footer-bottom p:hover {
+    color: #ff69b4; /* Change color on hover */
+    cursor: pointer;
 }

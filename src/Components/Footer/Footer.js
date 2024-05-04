@@ -1,41 +1,49 @@
-import React from 'react'
-import'./Footer.css'
-import footer_logo from '../Assests/logo_big.png'
-import instagram_icon from '../Assests/instagram_icon.png'
-import pintester_icon from '../Assests/pintester_icon.png'
-import whatsapp_icon from '../Assests/whatsapp_icon.png'
+import React from 'react';
+import './Footer.css'; // Import your CSS file for styling
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import logo from '../Assests/logo.png'
 
 const Footer = () => {
-  return (
-    <div className="footer">
-        <div className="footer-logo">
-            <img src={footer_logo} alt=''/>
-            <p>PASAL</p>
-        </div>
-        <ul className="footer_links">
-            <li>Company</li>
-            <li>Products</li>
-            <li>Offices</li>
-            <li>About</li>
-            <li>Contact</li>
-        </ul>
-        <div className="footer-social-icon">
-            <div className="footer-icons-container">
-                <img src ={instagram_icon} alt=''/>
+    return (
+        <footer className="footer">
+            <div className="footer-top">
+                <div className="footer-logo">
+                    <img src= {logo}alt="Logo" />
+                </div>
+                <div className="footer-links">
+                    <div className="footer-links-column">
+                        <h3>Shop</h3>
+                        <ul>
+                            <li><button>New Arrivals</button></li>
+                            <li><button>Best Sellers</button></li>
+                            <li><button>Special Offers</button></li>
+                        </ul>
+                    </div>
+                    <div className="footer-links-column">
+                        <h3>Customer Service</h3>
+                        <ul>
+                            <li><button>Contact Us</button></li>
+                            <li><button>FAQs</button></li>
+                            <li><button>Shipping</button></li>
+                            <li><button>Returns</button></li>
+                        </ul>
+                    </div>
+                    <div className="footer-links-column">
+                        <h3>Follow Us</h3>
+                        <div className="social-icons">
+                            <button><FontAwesomeIcon icon={faFacebookF} /></button>
+                            <button><FontAwesomeIcon icon={faTwitter} /></button>
+                            <button><FontAwesomeIcon icon={faInstagram} /></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="footer-icons-container">
-                <img src ={pintester_icon} alt=''/>
+            <div className="footer-bottom">
+                <p>&copy; 2024 Your Company. All rights reserved.</p>
             </div>
-            <div className="footer-icons-container">
-                <img src ={whatsapp_icon} alt=''/>
-            </div>
-        </div>
-        <div className="footer-copyright">
-            <hr />
-            <p>Copyright @2024-All Right Reserved</p>
-        </div>
-    </div>
-  )
+        </footer>
+    );
 }
 
 export default Footer;

@@ -18,9 +18,15 @@
     border-radius: 10px ;
     background-color: #252525;
 }
-.popular-item{
-    zoom: 0.9;
-    margin:10px 20px;
+.popular-item {
+    margin: 10px 20px;
     display: flex;
     gap: 30px;
-}
+  }
+  
+  .popular-item img {
+    width: 300px; /* Set the desired width */
+    height: 400px; /* Set the desired height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+  }
+  

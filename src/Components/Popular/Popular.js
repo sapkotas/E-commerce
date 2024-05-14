@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from "react";
+import {   useNavigate } from "react-router-dom";
 import "./Popular.css";
-import data_product from "../Assests/data"; // Assuming this is a static data array
 import Item from "../Item/Item";
 import http from "../../Service/AxiosInterceptor";
+import Loading from "../Loading/Loading";
 
 const Popular = () => {
   const [userData, setUserData] = useState([]);
+ const navigate=useNavigate()
+
 
   useEffect(() => {
     getItem();
-  }, []); // Empty dependency array to run only once when the component mounts
+  }, []);
 
   const getItem = async () => {
     try {
-      const response = await http.get("/products/");
+      const response = await http.get(`/products`);
       setUserData(response.data.data);
     } catch (error) {
       console.log("Error fetching products:", error);
     }
   };
+  const handleSubmit=(item)=>{
+    
+  navigate("/singledata",{state:{
+    item 
+  }})
+  }
 
   return (
     <div className="popular">
@@ -27,18 +36,21 @@ const Popular = () => {
       <div className="popular-item">
         {userData.length > 0 ? (
           userData.map((item) => (
-            <Item
-              key={item._id} // Ensure each Item has a unique key
-              id={item._id}
-              name={item.product_name}
-              image={item.product_image}
-              new_price={item.new_price}
-              old_price={item.old_price}
-            />
+       
+             <span onClick={()=>handleSubmit(item)}>
+               <Item 
+                id={item._id}
+                name={item.product_name}
+                image={item.product_image}
+                new_price={item.new_price}
+                old_price={item.old_price}
+                
+              />
+             </span>
+ 
           ))
         ) : (
-          // Fallback when data is not available yet
-          <p>Loading...</p>
+          <p><Loading/></p>
         )}
       </div>
     </div>

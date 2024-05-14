@@ -4,10 +4,13 @@ import { useParams } from 'react-router-dom';
 import Path from '../Components/Path/Path';
 import ProductDisplay from '../Components/ProductDisplay/ProductDisplay';
 import Relatedproduct from '../Components/Relatedproduct/Relatedproduct';
+import SingleData from '../Components/SingleData/SingleData';
+
 
 
 
 const Product = () => {
+  
 
   const {all_product} = useContext(ShopContext);
   const {productId} = useParams() 
@@ -15,9 +18,12 @@ const Product = () => {
 
   return (
     <div>
+  
+       <SingleData/>
       <Path product={product}/>
       <ProductDisplay product = {product}/>
-      <Relatedproduct/>
+        <Relatedproduct/>
+  
    
 
     </div>

@@ -1,21 +1,23 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import http from "../../Service/AxiosInterceptor";
-import "./Modal.css";
-import "../CSS/LoginPage.css";
 
-const SignUp = () => {
-  const fullName = useRef();
+
+import "../CSS/LoginPage.css";
+import Loading from "../../Components/Loading/Loading";
+
+const Signup = () => {
+  const fullName = useRef()
   const email = useRef();
   const password = useRef();
-  const confirmPassword = useRef();
+  const confirmPassword = useRef()
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [modalShown, setModalShown] = useState(false);
   const [modalText, setModalText] = useState("");
 
-  const signupHandler = async (event) => {
+  const loginHandler = async (event) => {
     event.preventDefault();
     setLoading(true);
 
@@ -25,7 +27,6 @@ const SignUp = () => {
       password: password.current.value,
       confirmPassword: confirmPassword.current.value,
     };
-
     // Set timeout for the request
     const timeoutId = setTimeout(() => {
       setModalText("Request timed out. Please try again later.");
@@ -34,18 +35,19 @@ const SignUp = () => {
     }, 10000); // 10 seconds timeout
 
     try {
-      const response = await http.post("/users/register", signupData);
-      const accessToken = response.data.accessToken;
+      const response = await http.post("/users/register", signupData, {
+        timeout: 10000, // 10 seconds timeout
+      });
+      const getAccessToken = response.data.accessToken;
 
-      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("accessToken", getAccessToken);
 
-      if (response.data.status === "success") {
+      if (response.data.status === "Success") {
         setModalText(response.data.message);
         setModalShown(true);
-        
         navigate("/");
       } else {
-        throw new Error("Signup failed");
+        throw new Error("Login failed");
       }
     } catch (error) {
       let errorMessage = "Something went wrong"; // Default error message
@@ -68,38 +70,37 @@ const SignUp = () => {
     <div className="loginsignup">
       <div className="login-container">
         {loading ? (
-          <p>Loading...</p>
+          <p><Loading/></p>
         ) : (
-          <form className="login-form" onSubmit={signupHandler}>
+          <form className="login-form" onSubmit={loginHandler}>
             <h2>Signup</h2>
             <div className="form-group">
               <input
                 type="text"
                 id="fullName"
-                placeholder="Full Name"
+                placeholder="fullname"
                 ref={fullName}
               />
               <input
                 type="text"
-                id="email"
+                id="username"
                 placeholder="Email"
                 ref={email}
               />
               <input
                 type="password"
                 id="password"
-                placeholder="Password"
+                placeholder="password"
                 ref={password}
               />
               <input
                 type="password"
                 id="confirmPassword"
-                placeholder="Confirm Password"
+                placeholder="confirm password"
                 ref={confirmPassword}
               />
-              <button type="submit">Signup</button>
+              <button type="submit">Continue</button>
             </div>
-
             <div className="form-agree">
               <label>
                 <input type="checkbox" /> I agree to the terms & conditions
@@ -107,40 +108,21 @@ const SignUp = () => {
             </div>
           </form>
         )}
-
-        {/* Custom Modal */}
-        {modalShown && (
-          <div className="modal">
-            <div className="modal-content">
-              <span
-                className="close"
-                onClick={() => {
-                  setModalShown(false);
-                }}
-              >
-                &times;
-              </span>
-              <p>{modalText}</p>
-              <button
-                onClick={() => {
-                  setModalShown(false);
-                }}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        )}
-
         <p className="login-login">
           Already have an account?{" "}
           <span>
             <Link to="/login">Click here</Link>
           </span>
         </p>
+        {modalShown && (
+          <div className="modal">
+            <p>{modalText}</p>
+            <button onClick={() => setModalShown(false)}>Close</button>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default SignUp;
+export default Signup;

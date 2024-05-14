@@ -12,6 +12,7 @@ import Cart from "./Pages/Cart";
 import LoginPage from "./Pages/User/LoginPage";
 import SignUp from "./Pages/User/Signup";
 import Category from "./Components/Category/Category";
+import SingleData from "./Components/SingleData/SingleData";
 
 function App() {
   return (
@@ -42,9 +43,10 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/Signup" element={<SignUp/>} />
+          <Route path="/singledata" element={<SingleData/>}/>
         </Routes>
-        <Fotter />
       </BrowserRouter>
+     
     </div>
   );
 }

@@ -15,6 +15,7 @@ http.interceptors.request.use(
     // Do something before request is sent
 
     const accessToken = localStorage.getItem("accessToken");
+    
 
     // If access token is available, add it to the Authorization header
     if (accessToken) {

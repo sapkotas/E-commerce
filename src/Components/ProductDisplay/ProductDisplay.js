@@ -1,32 +1,28 @@
+
+
 import React, { useState, useEffect } from 'react';
 import './ProductDisplay.css';
 import star_icon from '../Assests/star_icon.png';
 import star_dull_icon from '../Assests/star_dull_icon.png';
 import { useContext } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
-import http from '../../Service/AxiosInterceptor';
 
-const ProductDisplay = (props) => {
+
+const ProductDisplay = ({ product }) => {
   const [userData, setUserData] = useState();
-  const { product } = props;
   const { addToCart } = useContext(ShopContext);
 
-  useEffect(() => {
-    const getItem = async () => {
-      try {
-        const response = await http.get(`/products/${product.id}`);
-        setUserData(response.data.data);
-      } catch (error) {
-        console.log("Error fetching product:", error);
-      }
-    };
 
-    getItem();
-  }, [product.id]);
+
+  if (!product || !product.id) { // If product or product.id is not defined, return null
+    return null;
+  }
 
   return (
     <div className="productdisplay">
-      <div className="productdisplay-left">
+     
+
+     <div className="productdisplay-left">
         <div className="productdisplay-img-list">
           <img src={product.image} alt="" />
           <img src={product.image} alt="" />
@@ -48,7 +44,7 @@ const ProductDisplay = (props) => {
           {/* <p> 122</p> */}
         </div>
         <div className="productdisplay-right-prices">
-          <div className="productdisplay-right-price-old"> ${product.old_price}</div>
+        <div className="productdisplay-right-price-old"> ${product.old_price}</div>
           <div className="productdisplay-right-price-new"> ${product.new_price}</div>
         </div>
         <div className="productdisplay-right-detail">
@@ -78,6 +74,11 @@ const ProductDisplay = (props) => {
           Modern , Latest
         </p>
       </div>
+
+
+
+
+
     </div>
   );
 };

@@ -25,8 +25,9 @@ const Signup = () => {
       fullName: fullName.current.value,
       email: email.current.value,
       password: password.current.value,
-      confirmPassword: confirmPassword.current.value,
+      confirm_password: password.current.value,
     };
+  
     // Set timeout for the request
     const timeoutId = setTimeout(() => {
       setModalText("Request timed out. Please try again later.");
@@ -42,12 +43,12 @@ const Signup = () => {
 
       localStorage.setItem("accessToken", getAccessToken);
 
-      if (response.data.status === "Success") {
+      if (response.data.status === "User registered successfully !!") {
         setModalText(response.data.message);
         setModalShown(true);
-        navigate("/");
+        navigate("/login");
       } else {
-        throw new Error("Login failed");
+        throw new Error("signup failed");
       }
     } catch (error) {
       let errorMessage = "Something went wrong"; // Default error message
@@ -97,14 +98,14 @@ const Signup = () => {
                 type="password"
                 id="confirmPassword"
                 placeholder="confirm password"
-                ref={confirmPassword}
+                ref={password}
               />
               <button type="submit">Continue</button>
             </div>
             <div className="form-agree">
-              <label>
+              {/* <label>
                 <input type="checkbox" /> I agree to the terms & conditions
-              </label>
+              </label> */}
             </div>
           </form>
         )}

@@ -13,6 +13,7 @@ import LoginPage from "./Pages/User/LoginPage";
 import SignUp from "./Pages/User/Signup";
 import Category from "./Components/Category/Category";
 import SingleData from "./Components/SingleData/SingleData";
+import ProductDisplay from "./Components/ProductDisplay/ProductDisplay";
 
 function App() {
   return (
@@ -37,13 +38,18 @@ function App() {
             path="/kids"
             element={<ShopCategory banner={kid_banner} category="kid" />}
           />
-          <Route path="/product" element={<Product />}>
-            <Route path=":productId" element={<Product />} />
-          </Route>
+          <Route path="/product" element={<Product />}/>
+          <Route path="/productdisplay" element={<ProductDisplay/>}/>
+           
+    
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/Signup" element={<SignUp/>} />
-          <Route path="/singledata" element={<SingleData/>}/>
+
+
+          <Route path="/singledata" element={<SingleData/>}>
+          <Route path=":singledataId" element={<SingleData/>}/>
+          </Route>
         </Routes>
       </BrowserRouter>
      

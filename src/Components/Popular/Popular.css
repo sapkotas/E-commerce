@@ -1,32 +1,79 @@
-.popular{
-    display:flex;
+.popular {
+    display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
     height: 90vh;
     margin: 10px;
- 
-}
-.popular h1{
+  }
+  
+  .popular h1 {
     color: #171717;
     font-size: 30px;
     font-weight: 600;
-}
-.popular hr{
-    width: 200px;
-    height: 6px;
-    border-radius: 10px ;
-    background-color: #252525;
-}
-.popular-item {
-    margin: 10px 20px;
-    display: flex;
-    gap: 30px;
   }
   
-  .popular-item img {
+  .popular hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #252525;
+  }
+  
+  .popular-item {
+    margin: 10px 20px;
+    display: flex;
+    flex-wrap: wrap; /* Ensures items wrap to the next line if needed */
+    gap: 30px;
+    justify-content: center; /* Centers items horizontally */
+  }
+  
+  .popular-item ul {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display list items in a row */
+    flex-wrap: wrap; /* Wrap to the next line if needed */
+    gap: 30px; /* Space between items */
+  }
+  
+  .popular-item li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item img {
     width: 300px; /* Set the desired width */
     height: 400px; /* Set the desired height */
     object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+    cursor: pointer; /* Adds a pointer cursor on hover */
+  }
+  
+  .item p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #171717;
+  }
+  
+  .item-prices {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .item-price-new {
+    color: #e74c3c;
+    font-weight: 600;
+  }
+  
+  .item-price-old {
+    color: #95a5a6;
+    text-decoration: line-through;
   }
   

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {   useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Popular.css";
-import Item from "../Item/Item";
 import http from "../../Service/AxiosInterceptor";
-import Loading from "../Loading/Loading";
+import Loading from '../Loading/Loading'
 
-const Popular = () => {
+const Popular = (props) => {
   const [userData, setUserData] = useState([]);
- const navigate=useNavigate()
-
+  const [loading, setLoading] = useState(true); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     getItem();
@@ -19,41 +18,51 @@ const Popular = () => {
       const response = await http.get(`/products`);
       setUserData(response.data.data);
     } catch (error) {
-      console.log("Error fetching products:", error);
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false); // Set loading to false once data is fetched
     }
   };
-  const handleSubmit=(item)=>{
-    
-  navigate("/singledata",{state:{
-    item 
-  }})
-  }
+
+  const handleItemClick = (item) => {
+    navigate("/singledata", {
+      state: {
+        item,
+      },
+    });
+  };
 
   return (
-    <div className="popular">
-      <h1>POPULAR IN</h1>
-      <hr />
-      <div className="popular-item">
-        {userData.length > 0 ? (
-          userData.map((item) => (
-       
-             <span onClick={()=>handleSubmit(item)}>
-               <Item 
-                id={item._id}
-                name={item.product_name}
-                image={item.product_image}
-                new_price={item.new_price}
-                old_price={item.old_price}
-                
-              />
-             </span>
- 
-          ))
+    <>
+      <div className="popular">
+        <h1>POPULAR IN</h1>
+        <hr />
+        {loading ? ( // Show loading screen if loading is true
+          <div className="loading"> <Loading/> </div>
         ) : (
-          <p><Loading/></p>
+          <div className="popular-item">
+            <ul>
+              {userData.map((item) => (
+                <li key={item._id} onClick={() => handleItemClick(item)}>
+                  <div className="item">
+                    <img
+                      onClick={() => window.scrollTo(0, 0)}
+                      src={item.product_image}
+                      alt={item.product_name}
+                    />
+                    <p>{item.product_name}</p>
+                    <div className="item-prices">
+                      <div className="item-price-new">${item.new_price}</div>
+                      <div className="item-price-old">${item.old_price}</div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

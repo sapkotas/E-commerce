@@ -87,9 +87,9 @@ const LoginPage = () => {
               <button type="submit">Continue</button>
             </div>
             <div className="form-agree">
-              <label>
+              {/* <label>
                 <input type="checkbox" /> I agree to the terms & conditions
-              </label>
+              </label> */}
             </div>
           </form>
         )}

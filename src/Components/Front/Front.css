@@ -1,64 +1,129 @@
-.front{
-    height: 100vh;
-    background:linear-gradient(180deg,#fde1ff 0%,#e1ffea22 60%);
-    display: flex;
-    }
-    
-    .front-left{
-        flex:1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 20px;
-        padding-left: 180px;
-        line-height: 1.1;
-    }
-    
-    .front-left h2{
-        font-size: 25px;
-        font-weight: 600;
-        color: black;
-    }
-    
-    .front-left p{ 
-        font-size: 90px;
-        color: #171711;
-        font-weight: 500;
-    }
-    
-    .front-hand-icon{
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .front-hand-icon img{
-        width: 105px;
-    }
-    
-    .front-latest-btn{
-        border-radius: 75px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-        width: 310px;
-        height: 70px;
-        margin-top: 30px;
-        background-color: rgb(255, 65, 65);
-        color: white;
-        font-size: 22px;
-        font-weight: 500;
-    }
-    
-    .front-right{
-        flex:1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .front-right img{
-        width: 650px;
-        height: 750px;
-    }
-    
+body {
+  overflow-x: hidden;
+}
+
+.promo-slide {
+  display: flex;
+  padding: 150px;
+  margin: 10px 0px;
+  background-color: #e0dede;
+  background-image: url("D:\e-commerce0\my-app\src\Components\Assests\slider-bg.jpg");
+  background-size: cover;
+  background-position: right;
+  height: 630px;
+}
+
+.promo-content {
+  flex: 1;
+  text-align: left;
+  margin: 10px 115px 0px 75px;
+  
+}
+
+.promo-content h2 {
+  font-size: 3rem;
+  color: red;
+}
+
+.promo-content h3 {
+  font-size: 2.5rem;
+  color: #001f3f;
+}
+
+.promo-content p {
+  font-size: 1rem;
+  margin: 20px 0;
+  color: #333 ;
+}
+
+.promo-content button {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.promo-image {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.promo-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+@media (min-width: 992px) {
+  .promo-slide {
+    flex-direction: row;
+    height: 630px;
+    padding: 150px;
+    background-position: right;
+  }
+
+  .promo-content {
+    margin: 10px 115px 0px 75px;
+  }
+
+  .promo-content h2 {
+    font-size: 3rem;
+  }
+
+  .promo-content h3 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .promo-slide {
+    flex-direction: column;
+    height: auto;
+    padding: 100px 30px;
+    background-position: center;
+  }
+
+  .promo-content {
+    margin: 10px 20px;
+  }
+
+  .promo-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .promo-content h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo-slide {
+    padding: 80px 20px;
+  }
+
+  .promo-content h2 {
+    font-size: 2rem;
+  }
+
+  .promo-content h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .promo-slide {
+    padding: 60px 10px;
+  }
+
+  .promo-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .promo-content h3 {
+    font-size: 1.5rem;
+  }
+}

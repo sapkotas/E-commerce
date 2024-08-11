@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Popular.css";
+import "./RelatedProduct.css";
 import http from "../../Service/AxiosInterceptor";
 import Loading from '../Loading/Loading';
 
-const Popular = (props) => {
+const RelatedProduct = (props) => {
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
-
 
   useEffect(() => {
     getItem();
@@ -18,13 +17,16 @@ const Popular = (props) => {
     try {
       const response = await http.get(`/products`);
       const data = response.data.data;
-      // Shuffle the array
-      const shuffledData = data.sort(() => 3 - Math.random());
-      setUserData(shuffledData);
+    
+      const slicedData = data.slice(4);
+      const shuffledData = slicedData.sort(() => 0.5 - Math.random());
+   
+      const limitedData = shuffledData.slice(0, 3);
+      setUserData(limitedData);
     } catch (error) {
       console.error("Error fetching products:", error);
     } finally {
-      setLoading(false); // Set loading to false once data is fetched
+      setLoading(false);
     }
   };
 
@@ -38,15 +40,15 @@ const Popular = (props) => {
 
   return (
     <>
-      <div className="popular">
-        <h1>POPULAR NOW</h1>
+      <div className="relatedProduct">
+        <h1>Related Products</h1>
         <hr />
         {loading ? ( 
           <div className="loading"> <Loading/>  </div>
         ) : (
-          <div className="popular-item">
+          <div className="relatedProduct-item">
             <ul>
-              {userData.slice(10,13).map((item) => ( // Start from the 5th item
+              {userData.map((item) => ( 
                 <li key={item._id} onClick={() => handleItemClick(item)}>
                   <div className="item">
                     <img
@@ -70,4 +72,4 @@ const Popular = (props) => {
   );
 };
 
-export default Popular;
+export default RelatedProduct;

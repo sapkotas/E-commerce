@@ -2,8 +2,6 @@ import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import http from "../../Service/AxiosInterceptor";
 
-
-import "../CSS/LoginPage.css";
 import Loading from "../../Components/Loading/Loading";
 
 const LoginPage = () => {
@@ -67,7 +65,9 @@ const LoginPage = () => {
     <div className="loginsignup">
       <div className="login-container">
         {loading ? (
-          <p><Loading/></p>
+          <p>
+            <Loading />
+          </p>
         ) : (
           <form className="login-form" onSubmit={loginHandler}>
             <h2>Login</h2>

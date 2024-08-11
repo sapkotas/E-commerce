@@ -1,45 +1,45 @@
-.offers{
-    width: 80%;
-    height: 60vh;
-    display: flex;
-    margin: auto;
-    padding: 10px 150px;
-    margin-bottom:150px;
-    background: linear-gradient(180deg, #fde1ff 10%,#e1ffea22 60%);
+.new-arrivals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  background-color: #d5d1cd;
+  max-width: 100%;
 }
-.offers-left{
-    flex-direction: column;
-    flex:1;
-    display: flex;
-    justify-content: center;
-}
-.offers-left h1{
-    color: #171717;
-    font-size: 80px;
-    font-weight: 600;
-}
-.offers-left p{
-    color: #171717;
-    font-size: 22px;
-    font-weight: 600;
-}
-.offers-left button{
-    width: 282px;
-    height:70px;
-    border-radius: 35px;
-    background-color: #ff4141;
-    border: none;
-    color: white;
-    font-size: 22px;
-    font-weight: 600;
-    margin-top: 30px;
-    cursor: pointer;
-}
-.offers-right{
-    flex:1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 50px;
 
+.new-arrivals-image img {
+width: 900px;
+  height: 100%;
+}
+
+.new-arrivals-content {
+  margin-left: -500px;
+  text-align: left;
+}
+
+.new-arrivals-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.new-arrivals-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.new-arrivals-content button {
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-arrivals-content button:hover {
+  background-color: red;
 }

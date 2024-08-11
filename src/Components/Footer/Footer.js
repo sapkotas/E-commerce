@@ -1,49 +1,50 @@
 import React from 'react';
-import './Footer.css'; // Import your CSS file for styling
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import logo from '../Assests/logo.png'
+import './Footer.css'; // Assuming you have a CSS file for styling
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="footer-top">
-                <div className="footer-logo">
-                    <img src= {logo}alt="Logo" />
-                </div>
-                <div className="footer-links">
-                    <div className="footer-links-column">
-                        <h3>Shop</h3>
-                        <ul>
-                            <li><button>New Arrivals</button></li>
-                            <li><button>Best Sellers</button></li>
-                            <li><button>Special Offers</button></li>
-                        </ul>
-                    </div>
-                    <div className="footer-links-column">
-                        <h3>Customer Service</h3>
-                        <ul>
-                            <li><button>Contact Us</button></li>
-                            <li><button>FAQs</button></li>
-                            <li><button>Shipping</button></li>
-                            <li><button>Returns</button></li>
-                        </ul>
-                    </div>
-                    <div className="footer-links-column">
-                        <h3>Follow Us</h3>
-                        <div className="social-icons">
-                            <button><FontAwesomeIcon icon={faFacebookF} /></button>
-                            <button><FontAwesomeIcon icon={faTwitter} /></button>
-                            <button><FontAwesomeIcon icon={faInstagram} /></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="footer-bottom">
-                <p>&copy; 2024 Your Company. All rights reserved.</p>
-            </div>
-        </footer>
-    );
-}
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-section">
+          <h4>About Us</h4>
+          <p>
+            We are committed to providing the best products and services to our customers. Our aim is to enhance your shopping experience with quality products and top-notch support.
+          </p>
+        </div>
+        <div className="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h4>Follow Us</h4>
+          <div className="social-icons">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div className="footer-section">
+          <h4>Subscribe to Our AURORA</h4>
+          <form className="subscription-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} AURORA. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
+

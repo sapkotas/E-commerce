@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import "./Navbar.css";
-import logo from "../Assests/logo.png";
 import cart_icon from "../Assests/cart_icon.png";
 import { Link, useNavigate } from "react-router-dom";
-import { ShopContext } from "../../Context/ShopContext";
+
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("shop");
-  const { getTotalCartItems } = useContext(ShopContext);
+  const [menu, setMenu] = useState("home");
+
   const navigate = useNavigate();
 
   
@@ -26,22 +25,24 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <div className="nav-logo">
-          <Link to="/" style={{ textDecoration: "none", color: "#171717" }}><img src={logo} alt="" /></Link>
-          <p> <Link to="/" style={{ textDecoration: "none", color: "#171717" }}>
-              <b>PASAL</b>
-            </Link>
-          </p>
-        </div>
+      <div className="nav-logo">
+          
+          <img src= "https://c8.alamy.com/comp/2EA9JJG/clothes-hanger-modern-icon-vector-isolated-on-white-background-shop-symbol-2EA9JJG.jpg" alt="/"></img>
+            <p> <Link to="/" style={{ textDecoration: "none", color: "#171717" }}>
+                <b>AURORA</b>
+              </Link>
+            </p>
+          </div>
         <ul className="nav-menu">
-          <li onClick={() => {setMenu("shop");}}> <Link style={{ textDecoration: "none", color: "black" }} to="/">Shop </Link>{" "} {menu === "shop" ? <hr /> : <></>}</li>
-          <li onClick={()=>{setMenu("category")}}> <Link  style={{ textDecoration: "none", color: "black" }} to="/category"> Category</Link> {menu === "category" ? <hr /> : <></>}</li>
-          <li onClick={() => { setMenu("mens"); }} > <Link style={{ textDecoration: "none", color: "black" }} to="/mens">Men </Link>{menu === "mens" ? <hr /> : <></>}
-          </li>
-          <li onClick={() => {setMenu("womens");}}><Link style={{ textDecoration: "none", color: "black" }}to="/womens" >Women</Link> {menu === "womens" ? <hr /> : <></>}
-          </li>
-          <li onClick={() => {setMenu("kids"); }}> <Link style={{ textDecoration: "none", color: "black" }} to="/kids"> Kids </Link>{menu === "kids" ? <hr /> : <></>}
-          </li>
+          <li onClick={() => {setMenu("home");}}> <Link style={{ textDecoration: "none", color: "black" }} to="/">Home </Link>{" "} {menu === "home" ? <hr /> : <></>}</li>
+          <li onClick={() => {setMenu("shop");}}> <Link style={{ textDecoration: "none", color: "black" }} to="/shop">Shop </Link>{" "} {menu === "shop" ? <hr /> : <></>}</li>
+          <li onClick={() => {setMenu("about");}}> <Link style={{ textDecoration: "none", color: "black" }} to="/about">About us </Link>{" "} {menu === "about" ? <hr /> : <></>}</li>
+          <li onClick={() => {setMenu("FAQ");}}> <Link style={{ textDecoration: "none", color: "black" }} to="/faq">FAQ </Link>{" "} {menu === "FAQ" ? <hr /> : <></>}</li>
+          <li onClick={() => {setMenu("terms");}}> <Link style={{ textDecoration: "none", color: "black" }} to="/terms">Our Services </Link>{" "} {menu === "terms" ? <hr /> : <></>}</li>
+
+          
+       
+     
         </ul>
         <div>
           {localStorage.getItem("accessToken") ? (
@@ -50,8 +51,9 @@ const Navbar = () => {
               <Link to="/cart">
                   <img src={cart_icon} alt="" />
                 </Link>
-                <div className="nav-cart-count">{getTotalCartItems()}</div>
+                <div className="nav-cart-count"></div>
                 <button onClick={onLogOut}>Logout</button>
+                <li onClick={() => {setMenu("blogs");}}> <Link style={{ textDecoration: "none", color: "black" }} to="/add">Addproduct </Link></li>
               </div>
             </>
           ) : (
@@ -59,8 +61,8 @@ const Navbar = () => {
               <div className="nav-login-cart">
               <Link to="/cart">
                   <img src={cart_icon} alt="" />
-                </Link>
-                <div className="nav-cart-count">{getTotalCartItems()}</div>
+                </Link> 
+                <div className="nav-cart-count"></div>
                 <button onClick={onLogin}>Login</button>
               </div>
             </>
@@ -72,3 +74,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

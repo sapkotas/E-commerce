@@ -1,0 +1,166 @@
+
+ 
+  .relatedProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .relatedProduct {
+      margin-top: 50px;
+    }
+    
+    .relatedProduct h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .relatedProduct hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    
+    .relatedProduct-item {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .relatedProduct-item ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .relatedProduct-item li {
+      cursor: pointer;
+      width: 30%;
+    }
+    
+    .relatedProduct-item .item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    
+    .relatedProduct-item .item img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    
+    .relatedProduct-item .item p {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    
+    .relatedProduct-item .item-prices {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .relatedProduct-item .item-price-new {
+      font-weight: bold;
+      color: green;
+    }
+    
+    .relatedProduct-item .item-price-old {
+      color: red;
+      text-decoration: line-through;
+    }
+    
+    margin: 10px;
+    padding: 0 20px; 
+  }
+  
+  .relatedProduct h1 {
+    color: #171717;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  
+  .relatedProduct hr {
+    width: 70%;
+    border-radius: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+  }
+  
+  .relatedProduct-item {
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .relatedProduct-item ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .relatedProduct-item li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .item img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    cursor: pointer;
+  }
+  
+  .item p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #171717;
+  }
+  
+  .item-prices {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .item-price-new {
+    color: #e74c3c;
+    font-weight: 600;
+  }
+  
+  .item-price-old {
+    color: #95a5a6;
+    text-decoration: line-through;
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .item {
+      max-width: 100%; 
+      height: 350px; 
+    }
+  
+    .item img {
+      max-height: 300px; 
+    }
+  }
+  
